@@ -1,0 +1,1277 @@
+<title>Southern African Clan Notes</title>
+<style>
+  :root {
+    --bg: #FAF6EE;
+    --surface: #FFFFFF;
+    --surface-2: #FBF6EC;
+    --text: #241C12;
+    --muted: #6B5E4C;
+    --faint: #8A7C68;
+    --accent: #8C3E14;
+    --accent-soft-bg: #F3E3D3;
+    --nation: #4B5F45;
+    --nation-soft-bg: #E4E9DD;
+    --border: #E4D9C3;
+    --border-strong: #D9C9A8;
+    --tile-bg: #F1EADA;
+    --tile-text: #8A7C68;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1C1712;
+      --surface: #251E17;
+      --surface-2: #2B231A;
+      --text: #F2E9D8;
+      --muted: #C2B29A;
+      --faint: #9C8D76;
+      --accent: #E39358;
+      --accent-soft-bg: #3D2C1D;
+      --nation: #9FBB90;
+      --nation-soft-bg: #2A3226;
+      --border: #3C3226;
+      --border-strong: #4A3E2E;
+      --tile-bg: #2A241C;
+      --tile-text: #9C8D76;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1712;
+    --surface: #251E17;
+    --surface-2: #2B231A;
+    --text: #F2E9D8;
+    --muted: #C2B29A;
+    --faint: #9C8D76;
+    --accent: #E39358;
+    --accent-soft-bg: #3D2C1D;
+    --nation: #9FBB90;
+    --nation-soft-bg: #2A3226;
+    --border: #3C3226;
+    --border-strong: #4A3E2E;
+    --tile-bg: #2A241C;
+    --tile-text: #9C8D76;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', system-ui, sans-serif;
+    padding-inline: 20px;
+    padding-block: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  .wrap { width: 100%; max-width: 720px; padding-block: 40px 64px; }
+
+  .kicker {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0 0 16px;
+  }
+  .lede {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 58ch;
+    margin: 0 0 30px;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  input[type="text"] {
+    width: 100%;
+    font: inherit;
+    font-size: 18px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+  }
+  input[type="text"]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  main { margin-top: 28px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    margin-bottom: 10px;
+  }
+  .card-head h2 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 25px;
+    margin: 0;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .tag-nation { color: var(--nation); background: var(--nation-soft-bg); }
+  .tag-group { color: var(--accent); background: var(--accent-soft-bg); }
+  .origin {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  .history {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+  }
+  .praise {
+    border-left: 3px solid var(--accent);
+    padding: 2px 0 2px 18px;
+    margin: 0 0 20px;
+  }
+  .praise p:first-child {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0 0 6px;
+  }
+  .praise p:last-child {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+  }
+  .sources {
+    font-size: 13px;
+    color: var(--faint);
+    margin: 0;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .explore-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; }
+  .explore-links a { font-size: 13.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .explore-links a:hover { text-decoration: underline; }
+
+  .suggest, .none {
+    padding-block: 6px 8px;
+  }
+  .suggest p, .none p { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
+  .none {
+    border-top: 1px dashed var(--border-strong);
+    padding-top: 20px;
+    margin-top: 4px;
+  }
+  .none .title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0 0 8px; }
+  .none p.body { font-size: 15px; line-height: 1.6; max-width: 60ch; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font: inherit;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-2);
+    color: var(--text);
+    cursor: pointer;
+  }
+  .chip:hover { background: var(--accent-soft-bg); border-color: var(--accent); }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .browse { margin-top: 40px; }
+  .browse > h2 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 4px;
+  }
+  .browse > .muted { font-size: 14px; color: var(--muted); margin: 0 0 20px; }
+  .nation-group { margin-bottom: 20px; }
+  .nation-group h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--nation);
+    margin: 0 0 10px;
+  }
+
+  .nations { margin-top: 48px; }
+  .nations > h2 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0 0 4px;
+  }
+  .nations > .muted { font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+  .nation-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .nation-nav a {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--nation);
+    background: var(--nation-soft-bg);
+    padding: 6px 12px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .nation-nav a:hover { text-decoration: underline; }
+
+  .map {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, minmax(52px, auto));
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .tile {
+    border-radius: 8px;
+    background: var(--tile-bg);
+    color: var(--tile-text);
+    padding: 8px 10px;
+    font-size: 11.5px;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .tile.empty { background: transparent; }
+  .tile .prov { font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: 10.5px; }
+  .tile.featured { background: var(--nation-soft-bg); color: var(--text); }
+  .tile.featured .prov { color: var(--nation); }
+  .tile .badges { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 4px; }
+  .tile .badge {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--surface);
+    color: var(--text);
+    padding: 2px 6px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .map-caption { font-size: 12px; color: var(--faint); line-height: 1.6; margin: 0 0 32px; max-width: 60ch; }
+
+  .nation-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    scroll-margin-top: 16px;
+  }
+  .nation-card h3 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0 0 2px;
+  }
+  .nation-card .region { font-size: 13.5px; color: var(--nation); font-weight: 600; margin: 0 0 16px; }
+  .nation-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; margin-bottom: 16px; }
+  @media (max-width: 480px) { .nation-cols { grid-template-columns: 1fr; } }
+  .nation-cols h4 {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0 0 10px;
+  }
+  .nation-cols dl { margin: 0; }
+  .nation-cols dt { font-size: 14.5px; font-weight: 600; margin: 0 0 2px; }
+  .nation-cols dd { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 0 0 12px; }
+  .nation-card .note { font-size: 12.5px; color: var(--faint); line-height: 1.6; margin: 0 0 14px; }
+
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); }
+  footer h2 {
+    font-family: 'Spectral', serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+  footer p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 64ch;
+    margin: 0 0 12px;
+  }
+  footer p.fine { font-size: 12px; color: var(--faint); line-height: 1.6; }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,500&family=Work+Sans:wght@400;500;600&display=swap">
+
+<div class="wrap">
+  <header>
+    <p class="kicker">Southern African clan &amp; surname notes</p>
+    <h1>Type a surname, see what&rsquo;s recorded about your clan.</h1>
+    <p class="lede">A small, sourced starting point &mdash; not a family tree. Now covers nine nations: <strong>Tsonga, Venda, Pedi (Bapedi), Zulu, Xhosa, Ndebele, Tswana, Sotho (Basotho)</strong> and <strong>Swati</strong> &mdash; each with clan notes plus a short profile of traditional food, attire and where they're found. Built from published clan histories and community praise archives; your own family&rsquo;s oral history will always know more than this does.</p>
+    <label for="surname">Your surname</label>
+    <input id="surname" type="text" autocomplete="off" placeholder="e.g. Chauke, Khumalo, Mahlangu&hellip;">
+  </header>
+
+  <main id="results"></main>
+
+  <section class="browse">
+    <h2>Documented so far</h2>
+    <p class="muted">One surname from each clan, grouped by nation &mdash; tap one to open it.</p>
+    <div id="chips"></div>
+  </section>
+
+  <section class="nations">
+    <h2>Food, attire &amp; where they're found</h2>
+    <p class="muted">Six short cultural profiles, plus a simplified map of each nation's core region. Tap a name to jump to it.</p>
+    <nav class="nation-nav">
+      <a href="#nation-Tsonga">Tsonga</a>
+      <a href="#nation-Venda">Venda</a>
+      <a href="#nation-Pedi">Pedi</a>
+      <a href="#nation-Zulu">Zulu</a>
+      <a href="#nation-Xhosa">Xhosa</a>
+      <a href="#nation-Ndebele">Ndebele</a>
+      <a href="#nation-Tswana">Tswana</a>
+      <a href="#nation-Sotho">Sotho</a>
+      <a href="#nation-Swati">Swati</a>
+    </nav>
+
+    <div class="map" role="img" aria-label="Simplified grid map of South Africa and neighbouring Mozambique and Eswatini, with each nation's core region highlighted">
+      <div class="tile empty"></div>
+      <div class="tile featured"><div class="prov">Limpopo</div><div class="badges"><span class="badge">Venda</span><span class="badge">Pedi</span><span class="badge">Tsonga</span></div></div>
+      <div class="tile empty"></div>
+      <div class="tile featured"><div class="prov">S. Mozambique</div><div class="badges"><span class="badge">Tsonga</span></div></div>
+
+      <div class="tile featured"><div class="prov">North West</div><div class="badges"><span class="badge">Tswana</span></div></div>
+      <div class="tile"><div class="prov">Gauteng</div></div>
+      <div class="tile featured"><div class="prov">Mpumalanga</div><div class="badges"><span class="badge">Ndebele</span><span class="badge">Swati</span></div></div>
+      <div class="tile featured"><div class="prov">Eswatini</div><div class="badges"><span class="badge">Swati</span></div></div>
+
+      <div class="tile"><div class="prov">Northern Cape</div></div>
+      <div class="tile featured"><div class="prov">Free State</div><div class="badges"><span class="badge">Sotho</span></div></div>
+      <div class="tile featured"><div class="prov">KwaZulu-Natal</div><div class="badges"><span class="badge">Zulu</span></div></div>
+      <div class="tile empty"></div>
+
+      <div class="tile"><div class="prov">Western Cape</div></div>
+      <div class="tile featured"><div class="prov">Eastern Cape</div><div class="badges"><span class="badge">Xhosa</span></div></div>
+      <div class="tile empty"></div>
+      <div class="tile empty"></div>
+    </div>
+    <p class="map-caption">A simplified grid, not a to-scale map — provinces are arranged in roughly their real compass positions so you can orient yourself, but shapes and borders aren't literal. Limpopo carries three nations because Venda (Soutpansberg, in the far north), Pedi (Sekhukhuneland, central-east) and Tsonga (the Mozambique-border lowveld, east) occupy different parts of the same province. Many Basotho live in the independent Kingdom of Lesotho itself, which sits embedded within South Africa near the Free State/KwaZulu-Natal/Eastern Cape border but isn't a South African province and isn't drawn as its own tile here. All nine nations also have large populations in Gauteng's cities, a result of 20th-century labour migration not shown here. This tool doesn't yet cover the Khoikhoi and San peoples, South Africa's indigenous inhabitants before Bantu-speaking migration — their naming and clan traditions don't map onto the surname/praise-poem format used here, not because they matter less.</p>
+
+    <article class="nation-card" id="nation-Tsonga">
+      <h3>Tsonga</h3>
+      <p class="region">Southern Mozambique, Limpopo &amp; the Eswatini border</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Xigugu</dt><dd>Dry maize kernels pounded into a dense, protein-rich powder, eaten as a snack or mixed into a fuller meal.</dd>
+            <dt>Tihove</dt><dd>A samp of dried corn cooked with peanuts, ground nuts and beans, served alone or with meat.</dd>
+            <dt>Vukanyi</dt><dd>A fermented drink made from squeezed marula fruit juice.</dd>
+            <dt>Matomani</dt><dd>Mopane worms, hand-harvested and sun-dried — both a food staple and a small-trade product.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Xibelani</dt><dd>A pleated, flared knee-length skirt built to swirl dramatically during the xibelani hip dance.</dd>
+            <dt>Nceka</dt><dd>A shawl and matching headwrap, usually in bold prints.</dd>
+            <dt>Madeha &amp; masha</dt><dd>Layered beaded bracelets, anklets and necklaces.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: The Grace — Tsonga traditional food · Briefly.co.za — Tsonga culture · Wikipedia — Xibelani dance</p>
+    </article>
+
+    <article class="nation-card" id="nation-Venda">
+      <h3>Venda</h3>
+      <p class="region">Soutpansberg &amp; the Limpopo river valley</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Tshidzimba</dt><dd>A mix of beans, groundnuts and maize — one of the most common everyday dishes.</dd>
+            <dt>Thophi</dt><dd>Maize meal cooked with lerotse, a type of melon.</dd>
+            <dt>Mopane worms</dt><dd>Eaten cooked or dried; often compared in taste to poultry.</dd>
+            <dt>Baobab &amp; milk</dt><dd>Milk blended with the tart flesh of baobab fruit. Pork is traditionally avoided.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Minwenda</dt><dd>The everyday and ceremonial wrap-style attire of Venda women, in vivid patterned cloth.</dd>
+            <dt>Beads &amp; amulets</dt><dd>Inherited neck adornment believed to keep ancestors close to the living.</dd>
+            <dt>Domba aprons</dt><dd>Small front-and-back aprons worn by initiates in the Domba (python) dance.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Briefly.co.za — Venda culture · African Pride Collection — the story of minwenda</p>
+    </article>
+
+    <article class="nation-card" id="nation-Pedi">
+      <h3>Pedi (Bapedi)</h3>
+      <p class="region">Sekhukhuneland &amp; the eastern Limpopo highveld</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Dikgobe / bogobe</dt><dd>Coarsely ground corn cooked together with beans into a thick porridge.</dd>
+            <dt>Thophi</dt><dd>Maize meal with lerotse melon, shared with neighbouring Sotho-speaking groups.</dd>
+            <dt>Mashotja</dt><dd>Mopane worms, eaten as a snack or stew ingredient.</dd>
+            <dt>Moroga wa dikgopana</dt><dd>Wild greens, cooked and then sun-dried for later use.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <p class="note">Documentation of Bapedi-specific traditional dress was thin in the sources consulted for this tool — beadwork and leather skirts are well documented for the wider Sotho-speaking cultural family, but a confidently Pedi-specific breakdown isn't sourced here yet.</p>
+        </div>
+      </div>
+      <p class="sources">Sources: southafrica.net — Bapedi history, traditions, culture and food</p>
+    </article>
+
+    <article class="nation-card" id="nation-Zulu">
+      <h3>Zulu</h3>
+      <p class="region">KwaZulu-Natal</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Umngqusho</dt><dd>Samp and sugar beans slow-cooked with butter, onion, potato and chilli — said to have been Nelson Mandela's favourite dish.</dd>
+            <dt>Isitambu</dt><dd>A Zulu version of pounded, stamped corn, in the same spirit as umngqusho.</dd>
+            <dt>Amasi</dt><dd>Traditionally fermented milk, eaten with pap as an everyday staple.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Isidwaba</dt><dd>A black cowhide or goatskin skirt for married or betrothed women, treated as an "ancestral blanket" and traditionally buried rather than discarded.</dd>
+            <dt>Ibheshu</dt><dd>A calf-skin loincloth for men — knee-length for younger men, ankle-length for elders; leopard skin was reserved for royalty and chiefs.</dd>
+            <dt>Umqhele</dt><dd>A circular fur headband historically worn by warriors and high-status men.</dd>
+            <dt>Beaded "love letters"</dt><dd>Small beaded plaques exchanged between young people, where bead colour and pattern carried coded romantic meaning.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Wikipedia — Isidwaba, Umngqusho, Umqhele · Eshowe — traditional Zulu clothing · Ulwazi Programme — love letters</p>
+    </article>
+
+    <article class="nation-card" id="nation-Xhosa">
+      <h3>Xhosa</h3>
+      <p class="region">Eastern Cape</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Umngqusho</dt><dd>Samp and beans, a dish shared with Zulu and other neighbouring cuisines.</dd>
+            <dt>Umphokoqo</dt><dd>A crumbly maize porridge, classically eaten mixed with soured milk (amasi) as umvubo.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Umbhaco</dt><dd>Both the durable cotton cloth and the garments made from it — dresses, wraparound skirts, long shoulder scarves and headdresses in white, ochre, orange, red, turquoise and black.</dd>
+            <dt>Beadwork</dt><dd>A nearly 200-year-old aesthetic tradition of beaded collars and accessories worn over umbhaco, for weddings, rites of passage and everyday dress.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Umbhaco.co.za · Wikipedia — Umngqusho</p>
+    </article>
+
+    <article class="nation-card" id="nation-Ndebele">
+      <h3>Ndebele</h3>
+      <p class="region">Mpumalanga, Gauteng &amp; Limpopo</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Amadumbe</dt><dd>A tropical root vegetable, boiled, fried, or ground into meal.</dd>
+            <dt>Mutakura</dt><dd>A protein-dense mix of sugar beans, peanuts, maize, bambara nuts and cowpeas, soaked and slow-boiled.</dd>
+            <dt>Amacimbi</dt><dd>Mopane worms, collected in the rainy season and sun-dried.</dd>
+          </dl>
+          <p class="note">This list draws partly on sources covering the wider Ndebele-speaking world, including Zimbabwe's amaNdebele — dedicated South African (Southern) Ndebele food sourcing is thinner.</p>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Nguba</dt><dd>A striped blanket in green, red, blue, yellow and brown, worn over the shoulders.</dd>
+            <dt>Isigolwani</dt><dd>Thick beaded hoops worn around the neck and legs by married women, with copper and brass rings.</dd>
+            <dt>Isiphephetu</dt><dd>A beaded apron given by a mother to a daughter entering womanhood at initiation.</dd>
+            <dt>Iporiyana</dt><dd>A men's animal-skin breastplate, given by a father to his son after initiation.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Vuk'uzenzele — Ndebele traditional dress · The Grace — Ndebele traditional food</p>
+    </article>
+
+    <article class="nation-card" id="nation-Tswana">
+      <h3>Tswana</h3>
+      <p class="region">North West</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Seswaa (loswao)</dt><dd>Beef or goat, boiled until tender then pounded, lightly salted — served at weddings, funerals and national celebrations. Called loswao in South Africa's north and west.</dd>
+          </dl>
+          <p class="note">Beyond seswaa, dedicated Tswana-specific dish documentation was thin in the sources consulted — pap and sorghum porridge are staples shared across the wider Sotho-Tswana region.</p>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Shweshwe &amp; toishi</dt><dd>Printed cotton cloth, traditionally in shades of blue — often called the defacto Tswana cultural colour.</dd>
+            <dt>Mogagolwane</dt><dd>A checkerboard-patterned blanket worn by married women at weddings, initiations and funerals.</dd>
+            <dt>Makgabe</dt><dd>A small beaded skirt worn by young girls.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Wikipedia — Seswaa · The Grace — Tswana traditional attire</p>
+    </article>
+
+    <article class="nation-card" id="nation-Sotho">
+      <h3>Sotho (Basotho)</h3>
+      <p class="region">Free State, plus the independent Kingdom of Lesotho</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Maize, millet &amp; legumes</dt><dd>The historic staple diet — maize, millet, melons, pumpkins, peas, beans and groundnuts — alongside seasonal wild berries.</dd>
+            <dt>Jwala</dt><dd>Traditional sorghum beer, brewed for ceremonial occasions.</dd>
+          </dl>
+          <p class="note">Cattle were the most valued form of wealth and central to the diet, though specific dish names beyond these staples were thin in the sources consulted.</p>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Mokorotlo</dt><dd>The conical straw hat woven from moseha grass, its shape said to echo Mount Qiloane near Thaba Bosiu — now Lesotho's national emblem.</dd>
+            <dt>Lehlosi</dt><dd>A wildcat or leopard-skin blanket, historically worn only by chiefs.</dd>
+            <dt>Setipe &amp; mokhahla</dt><dd>Other traditional skin blankets worn by men.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: southafrica.net — the culture of Basotho · Wikipedia — Mokorotlo, Moshoeshoe I</p>
+    </article>
+
+    <article class="nation-card" id="nation-Swati">
+      <h3>Swati</h3>
+      <p class="region">Mpumalanga &amp; the Kingdom of Eswatini</p>
+      <div class="nation-cols">
+        <div>
+          <h4>Food</h4>
+          <dl>
+            <dt>Lipalishi</dt><dd>Maize porridge, the everyday staple.</dd>
+            <dt>Buganu</dt><dd>A fermented marula-fruit drink, central to an annual harvest festival.</dd>
+            <dt>Ligusha</dt><dd>A soup made from jute (wild spinach-like) leaves.</dd>
+            <dt>Imbasha</dt><dd>Roasted mealies with peanuts.</dd>
+          </dl>
+        </div>
+        <div>
+          <h4>Attire</h4>
+          <dl>
+            <dt>Emahiya (lihiya)</dt><dd>Bright, patterned cloth — the core of Swati dress for both men and women, worn wrapped over the torso.</dd>
+            <dt>Emajobo</dt><dd>Leather aprons worn by men over a colourful underskirt.</dd>
+            <dt>Ligwalagwala</dt><dd>Red turaco feathers, worn as a headdress reserved for royalty.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="sources">Sources: Briefly.co.za — Swazi culture, food and traditional attire</p>
+    </article>
+  </section>
+
+  <footer>
+    <h2>How these clans are organised</h2>
+    <p>Each of these nations groups surnames into patrilineal clans, known by a different name in each language: <em>xivongo</em> (plural <em>swivongo</em>) among the Tsonga, <em>izithakazelo</em> (clan praises) among the Zulu, Ndebele and Swati, and <em>iziduko</em> among the Xhosa &mdash; where the everyday surname and the ceremonial clan name are often recorded separately (Nelson Mandela's surname was Mandela; his isiduko was Madiba). The Tswana and Sotho (Basotho) instead organise clans around a <em>seboko</em> (plural <em>diboko</em>) &mdash; a totem animal, plant or natural feature the clan is named for and identifies with, such as the crocodile (kwena), lion (tau) or baboon (tshwene). Similar clan and chieftaincy structures run through the Venda and Pedi royal houses, though this tool doesn't yet have a confidently sourced term for them in either language.</p>
+    <p class="fine">General history drawn from published ethnographic summaries (101 Last Tribes; Kwekudee &mdash; Trip Down Memory Lane; South African History Online), Wikipedia, and community clan-praise archives (izithakazelo.blog, theclannames.co.za, southafricanclans.com, Wakahina, iAfrika, Dikobo, Luonde, The Grace). Clan attachments, praise wording and totems vary by family and region &mdash; treat this as a starting point, not the final word. Your last search is remembered on this device only.</p>
+  </footer>
+</div>
+
+<script>
+  const NATIONS = ["Tsonga", "Venda", "Pedi", "Zulu", "Xhosa", "Ndebele", "Tswana", "Sotho", "Swati"];
+  const NATION_LABEL = { Tsonga: "Tsonga", Venda: "Venda", Pedi: "Pedi (Bapedi)", Zulu: "Zulu", Xhosa: "Xhosa", Ndebele: "Ndebele", Tswana: "Tswana", Sotho: "Sotho (Basotho)", Swati: "Swati" };
+
+  const DATA = [
+    // --- Tsonga ---
+    {
+      id: "chauke", nations: ["Tsonga"],
+      surnames: ["Chauke", "Cawuke"],
+      group: "Vahlengwe branch",
+      origin: "One of the major clans of the Vahlengwe branch — described by the Swiss ethnographer Henri-Alexandre Junod as the largest and most original of the Tsonga tribal divisions, at one point comprising roughly half the Tsonga population.",
+      history: "Historically settled across the Bushbuckridge and wider Limpopo lowveld. In recorded clan-praise renditions, Chauke is invoked together with Ngobeni, which points to a shared or closely linked lineage between the two clans.",
+      praise: { text: "Ngobeni! Chauke! Vavanuna va le Xikwaembu.", gloss: "Ngobeni! Chauke! Men of the spiritual realm." },
+      sources: ["101 Last Tribes", "Kwekudee — Trip Down Memory Lane", "Wakahina clan archive"]
+    },
+    {
+      id: "ngobeni", nations: ["Tsonga"],
+      surnames: ["Ngobeni"],
+      group: "Vahlengwe branch (Limpopo)",
+      origin: "A Limpopo-based Tsonga clan, closely associated with the Chauke clan in recorded praise poetry.",
+      history: "The clan praise names Ngobeni and Chauke together, honouring the two lineages as defenders of their ancestral land — a formula typically recited to open a greeting or ceremony.",
+      praise: { text: "Ngobeni! Chauke! Vavanuna va le Xikwaembu. Lava nga tshiki ku lwela tiko ra vona.", gloss: "Ngobeni! Chauke! Men of the spiritual realm — those who never stopped fighting for their land." },
+      sources: ["Wakahina clan archive"]
+    },
+    {
+      id: "baloyi", nations: ["Tsonga"],
+      surnames: ["Baloyi", "Valoyi"],
+      group: "Vacopi branch",
+      origin: "Part of the Vacopi — a Tsonga sub-group whose bow-and-arrow warfare tradition is, in some oral histories, traced to contact with the Kalanga people of present-day Zimbabwe.",
+      history: "The Vacopi settled across what is now southern Mozambique and northern Limpopo. The Mathebula clan's own recorded praise names Baloyi alongside it, hinting at a shared or neighbouring lineage between the two.",
+      praise: null,
+      sources: ["101 Last Tribes", "Kwekudee — Trip Down Memory Lane"]
+    },
+    {
+      id: "mathebula", nations: ["Tsonga"],
+      surnames: ["Mathebula", "Mathevula"],
+      group: "Linked to the Baloyi lineage",
+      origin: "Recorded clan praise opens by naming Baloyi before Mathebula's own line — one of the clues used to trace how Tsonga clans split and re-formed over generations.",
+      history: "Beyond that praise fragment, published detail on Mathebula's own founding history is thin online — a reminder that a lot of xivongo knowledge still lives with family elders rather than in print.",
+      praise: { text: "Baloyi, Ncila ava ololi, va olola hi wansati andlini, makhandziya nsinya a xika hi rhavi.", gloss: "Untranslated in the source consulted; references Baloyi and a “tail” (ncila) image, likely a totem marker." },
+      sources: ["izithakazelo.blog clan-praise archive"]
+    },
+    {
+      id: "maluleke", nations: ["Tsonga"],
+      surnames: ["Maluleke"],
+      group: "Van'wanati — Vacopi-descended",
+      origin: "Descends from Bantu-speaking migrants who moved south from the African Great Lakes region and, as the Vacopi, learned bow-and-arrow hunting from the San before settling near the Nwanati river in southern Mozambique — hence “Van'wanati,” people of Nwanati.",
+      history: "Founded as a dynasty around the mid-1600s by Malenga wa Gunyule at Pfukwe. His son Maxakadzi expanded it through conquest and long-distance trade reaching as far as India, the Middle East and East Asia, before the kingdom later split into northern and southern branches.",
+      praise: { text: "References founder Gunyule, a mamba-snake ancestral lineage, the pre-battle “bangu” bravery drink, and a cave-dwelling past.", gloss: "A praise poem invoking founder Gunyule, a mamba-snake lineage, and the clan's cave-dwelling ancestral history." },
+      sources: ["Wikipedia — Maluleke"]
+    },
+    {
+      id: "nkuna", nations: ["Tsonga"],
+      surnames: ["Nkuna"],
+      group: "Shared Tsonga–Swazi prominence",
+      origin: "A surname carrying strong associations with leadership and nobility, recognised among both Tsonga and Swazi communities.",
+      history: "“Chief Nkuna” is a recurring, recognised traditional leadership title in Tsonga communities, though detailed founding history isn't well documented in accessible sources.",
+      praise: null,
+      sources: ["wisdomlib name archive"]
+    },
+    {
+      id: "hlungwani", nations: ["Tsonga"],
+      surnames: ["Hlungwani", "Hlungwane"],
+      group: "Limpopo / southern Mozambique",
+      origin: "The name is thought to derive from “kuhlunga” — to be straight or upright.",
+      history: "Prominent in Limpopo and southern Mozambique. Sculptor Jackson Hlungwani, known for his spiritual stone and wood works at Mbokota, is one of the clan's best-known modern names.",
+      praise: null,
+      sources: ["izithakazelo.blog clan-praise archive"]
+    },
+    {
+      id: "varonga", nations: ["Tsonga"],
+      surnames: ["Mpfumo", "Hon'wana", "Tembe", "Livombo", "Maxava"],
+      group: "Varonga branch",
+      origin: "Based in Mozambique near the Eswatini border, around Maputo — the area the name “Tsonga” is thought to originate from: “Ronga,” meaning “from the east.”",
+      history: "The Varonga are one of the founding branches of the wider Tsonga nation; Portuguese records from as early as the 16th century note chiefdoms in this area, including Tembe.",
+      praise: null,
+      sources: ["101 Last Tribes", "Kwekudee — Trip Down Memory Lane"]
+    },
+    {
+      id: "vanhlave", nations: ["Tsonga"],
+      surnames: ["Makamu", "Nkwinika", "Mavundza", "Mawila", "Mathye"],
+      group: "Vanhlave branch",
+      origin: "One of the largest Tsonga tribal branches, concentrated in north-eastern Mozambique.",
+      history: "Documented mainly through the same ethnographic surveys that recorded the wider Tsonga clan structure; detailed individual clan founding stories are less widely published.",
+      praise: null,
+      sources: ["101 Last Tribes", "Kwekudee — Trip Down Memory Lane"]
+    },
+    {
+      id: "bila", nations: ["Tsonga"],
+      surnames: ["Manyike", "Henhla", "Comana"],
+      group: "Bila branch",
+      origin: "A smaller Tsonga branch associated with the Bila dialect region.",
+      history: "Recorded as one of the named tribal divisions in early ethnographic surveys of the Tsonga, alongside its associated dialect.",
+      praise: null,
+      sources: ["101 Last Tribes"]
+    },
+    {
+      id: "vahlengwe-other", nations: ["Tsonga"],
+      surnames: ["Mnisi", "Lamula"],
+      group: "Vahlengwe branch",
+      origin: "Part of the same Vahlengwe branch as Chauke — described as the largest, and by some accounts the original, Tsonga tribal grouping.",
+      history: "Settled across the same Limpopo lowveld area associated with the wider Vahlengwe branch.",
+      praise: null,
+      sources: ["101 Last Tribes"]
+    },
+    {
+      id: "vadzonga", nations: ["Tsonga"],
+      surnames: ["Mavone", "Xikhotana", "Masiye", "Ntimane", "Masuluke"],
+      group: "Vadzonga branch",
+      origin: "Associated with the Dzonga dialect region of the Tsonga.",
+      history: "One of the named tribal divisions recorded in early 20th-century ethnographic surveys of the Tsonga people.",
+      praise: null,
+      sources: ["101 Last Tribes"]
+    },
+    {
+      id: "mavila", nations: ["Tsonga"],
+      surnames: ["Mavila"],
+      group: "Vacopi branch",
+      origin: "Recorded alongside Baloyi/Valoyi as part of the Vacopi branch.",
+      history: "Documentation beyond the branch listing itself is limited in the sources consulted.",
+      praise: null,
+      sources: ["101 Last Tribes"]
+    },
+
+    // --- Venda ---
+    {
+      id: "mphephu", nations: ["Venda"],
+      surnames: ["Mphephu"],
+      group: "Paramount royal house",
+      origin: "The Mphephu Thovhele holds the most senior position in Venda traditional governance and is regarded as the paramount chief of the Venda nation, seated in the Soutpansberg mountains of Limpopo.",
+      history: "Named for the mphephu herb burned in ceremony to reach the ancestors (midzimu). Thovhele Mphephu led the last armed Venda resistance against British colonial forces in 1898, before the Anglo-Boer War. The house's totem is the phala (impala), read as a sign of grace, vigilance and collective strength.",
+      praise: { text: "Mphephu! Vhathu vha Mphephu! Lavho vha Mphephu!", gloss: "A praise naming the Mphephu as a sovereign house whose authority has held across generations." },
+      sources: ["theclannames.co.za — Venda clan archive"]
+    },
+    {
+      id: "tshivhase", nations: ["Venda"],
+      surnames: ["Tshivhase"],
+      group: "Singo (Vhasenzi) royal house",
+      origin: "Descends from the Singo (Vhasenzi) dynasty that migrated into Venda from Vhukalanga, present-day Zimbabwe, in the mid-1500s.",
+      history: "Founded in Venda by Raluswielo, a son of King Vele-la-Mbeu. After King Thohoyandou's disappearance around 1770, Raluswielo contested the succession against Munzhedzi Mpofu, fighting at Dzata and at Songozwi before being defeated; the Tshivhase house has held a senior, sometimes rival, position in Venda royal politics since.",
+      praise: null,
+      sources: ["Luonde — Ha-Tshivhasa royal house history"]
+    },
+    {
+      id: "ramabulana", nations: ["Venda"],
+      surnames: ["Ramabulana"],
+      group: "Singo (Vhasenzi) royal lineage",
+      origin: "A recognised Venda royal/chiefly surname descended from the same Singo (Vhasenzi) ruling lineage as Mphephu and Tshivhase.",
+      history: "Documentation of this house's specific founding history beyond its royal standing is thin in the sources consulted.",
+      praise: null,
+      sources: ["General Venda kingdom histories"]
+    },
+    {
+      id: "netshimbupfe", nations: ["Venda"],
+      surnames: ["Netshimbupfe"],
+      group: "Venda chiefly lineage",
+      origin: "A recognised Venda chiefly surname; Munyadziwa Netshimbupfe appears in modern records as a holder of this chieftaincy.",
+      history: "Beyond that, detailed founding history is thin in the sources consulted.",
+      praise: null,
+      sources: ["Wikipedia — Munyadziwa Netshimbupfe"]
+    },
+    {
+      id: "vhangona", nations: ["Venda"],
+      surnames: ["Vhadau", "Vhambedzi", "Vhatavhatsindi", "Vhalea", "Vhatwamamba", "Vhania", "Vhagoni", "Vhaluvhu"],
+      group: "Vhangona — original settlers",
+      origin: "The Vhangona were the first groups to settle the Venda area, from around 700 AD, well before the royal houses that later unified them.",
+      history: "Sub-groups included the Vhadau (from Mount Sunguzwi to Mount Tshitumbe, chiefs Raphulu and Tshidziwelele), the Vhambedzi (based at Marungudzi in Zimbabwe and Tshulu, chief Luvhimbi known for rain-making) and others including Vhatavhatsindi, Vhalea, Vhatwamamba, Vhania, Vhagoni and Vhaluvhu. An estimated 85% of the Tshivenda language is said to descend from the original Vhangona tongue, despite the area later being politically unified by the Vhasenzi.",
+      praise: null,
+      sources: ["Know My Roots — Venda clan names"]
+    },
+    {
+      id: "vhasenzi", nations: ["Venda"],
+      surnames: ["Masingo", "Vhalaudzi"],
+      group: "Vhasenzi — the unifying royal lineage",
+      origin: "Later Karanga-Rozvi arrivals from the Zimbabwean plateau who conquered and politically unified the existing Vhangona clans, giving rise to the royal houses — Mphephu, Tshivhase, Ramabulana and others — that still lead the Venda nation today.",
+      history: "The same wave is also associated with the Vhanyai (chiefs Makahane and Tshilowa), Vhalembethu and Vhalovhedzi groups who settled eastern Venda.",
+      praise: null,
+      sources: ["Know My Roots — Venda clan names"]
+    },
+
+    // --- Pedi (Bapedi) ---
+    {
+      id: "sekhukhune", nations: ["Pedi"],
+      surnames: ["Sekhukhune"],
+      group: "Maroteng royal house",
+      origin: "The Pedi royal line descends from the Hurutshe, tracing to a common ancestor Malope, whose sons founded the Mohurutshe, Kwena and Mokgatla lines. Around 1650, chief Thobele established an independent Pedi chieftaincy at Mogokgomeng, near present-day Steelpoort.",
+      history: "Chief Thulare (c.1790–1820) greatly expanded the Pedi kingdom; Sekwati (1775–1861) rebuilt it and made peace with Boer settlers, commanding some 70,000 people; his son Sekhukhune I (1814–1882) resisted British colonial forces and was killed by his half-brother Mampuru. The clan's totem is the porcupine (noku) — adopted, the story goes, after finding a porcupine bristle while crossing the Leolo mountains, replacing an earlier monkey totem.",
+      praise: null,
+      sources: ["Kwekudee — Pedi (Bapedi/Northern Sotho) People", "gov.za — Determination on Bapedi Paramountcy"]
+    },
+    {
+      id: "mphahlele", nations: ["Pedi"],
+      surnames: ["Mphahlele"],
+      group: "Bakgaga branch",
+      origin: "Recorded as one of the Bakgaga lineages, named among the clans that built the wider Bopedi confederation.",
+      history: "Beyond that branch association, detailed founding history is thin in the sources consulted.",
+      praise: null,
+      sources: ["izithakazelo.blog — Bapedi/Balobedu history"]
+    },
+    {
+      id: "mokgatla", nations: ["Pedi"],
+      surnames: ["Mokgatla", "Kgatla"],
+      group: "Mokgatla branch (from the Hurutshe)",
+      origin: "One of three branches descended from Malope's sons, alongside Mohurutshe (the Pedi royal line) and Kwena.",
+      history: "Mokgatla's own descendants — Legabo, Pogopi and Botlolo — split further after Botlolo's death under leaders Mogale and Tabane; Tabane's line eventually produced the Mmakau, Motsha and Pedi groupings.",
+      praise: null,
+      sources: ["Kwekudee — Pedi (Bapedi/Northern Sotho) People"]
+    },
+    {
+      id: "balobedu", nations: ["Pedi"],
+      surnames: ["Modjadji", "Balobedu", "Lobedu"],
+      group: "Balobedu (Lobedu) kingdom",
+      origin: "A related Sepedi-speaking people of eastern Limpopo, ruled by the Modjadji dynasty. Oral tradition traces the line to a 16th-century Monomotapa (south-eastern Zimbabwe) chief's daughter, Dzugundini, who settled the Molototsi Valley.",
+      history: "Succession runs matrilineally, mother to daughter — the ruling Rain Queen (Modjadji, “ruler of the day”) is the only hereditary queen regnant in southern Africa; the most recent title-holder was recognised in 2023.",
+      praise: null,
+      sources: ["Wikipedia — Rain Queen"]
+    },
+    {
+      id: "bopedi-other", nations: ["Pedi"],
+      surnames: ["Bakone", "Bahananwa", "Mapulane"],
+      group: "Other Bopedi-building clans",
+      origin: "Named alongside the Marota (Sekhukhune) and Bakgaga (Mphahlele) as clans that together built the wider Bopedi confederation.",
+      history: "Detailed individual founding histories for these clans are thin in the sources consulted — a reminder that oral clan praise (direto) often carries more than what has been written down.",
+      praise: null,
+      sources: ["izithakazelo.blog — Bapedi/Balobedu history"]
+    },
+
+    // --- Zulu ---
+    {
+      id: "khumalo", nations: ["Zulu"],
+      surnames: ["Khumalo"],
+      group: "Mntungwa lineage",
+      origin: "Originated in northern KwaZulu among the Mntungwa grouping, settled between the Ndwandwe and Mthethwa territories around Mkhuze.",
+      history: "During the mfecane, chief Mashobana — married to a daughter of Ndwandwe leader Zwide — was executed by Zwide; his son Mzilikazi took over the clan, allied briefly with Shaka (tradition holds he was the only chief to defeat Shaka's forces in battle), then broke away and led his followers north to found the Ndebele kingdom of Mthwakazi in what is now Zimbabwe. The Ndebele nation there regards itself as descended from this Khumalo line.",
+      praise: null,
+      sources: ["Wikipedia — Khumalo clan"]
+    },
+    {
+      id: "mkhize", nations: ["Zulu"],
+      surnames: ["Mkhize"],
+      group: "Mbo (BaMbo) Nguni lineage",
+      origin: "Descend from Mumbo, part of the BaMbo Nguni grouping that shares ancestry with the Dlamini and Ndwandwe clans; oral history places an early crossing eastward before the clan settled the Qhudeni mountains of what is now KwaZulu-Natal.",
+      history: "The clan name is said to come from the search for the misty, high grassland suited to cattle (“those who travel to places of mist”). Under Zihlandlo kaGcwabe, the Mkhize submitted early to King Shaka to avoid destruction and hosted one of the first European visitors to the area — a closeness to Shaka that later drew suspicion from King Dingane, who had Zihlandlo killed.",
+      praise: null,
+      sources: ["iAfrika — Umlando wakwa Mkhize"]
+    },
+    {
+      id: "buthelezi", nations: ["Zulu"],
+      surnames: ["Buthelezi"],
+      group: "Mthethwa-allied house",
+      origin: "A powerful house allied to the Mthethwa confederation in KwaZulu-Natal.",
+      history: "Recorded clan praise names Shenge, Sokwalisa, Phungashe and Mnyamana kaNgqengelele among its honoured ancestors — Mnyamana Buthelezi served as a senior induna (councillor) to King Cetshwayo in the 19th century.",
+      praise: { text: "Shenge, Sokwalisa, Phungashe, Mnyamana kaNgqengelele!", gloss: "Praise names invoking the house's honoured ancestors and councillors." },
+      sources: ["Briefly.co.za — Izithakazelo zakwaZulu"]
+    },
+    {
+      id: "ndlovu", nations: ["Zulu", "Ndebele"],
+      surnames: ["Ndlovu"],
+      group: "Widespread across Zulu and Ndebele families",
+      origin: "“Ndlovu” means elephant in the Nguni languages — one of the most widely carried surnames among both Zulu and Ndebele families in South Africa and Zimbabwe.",
+      history: "Its breadth means it isn't tied to a single royal house the way Khumalo or Buthelezi are; families carrying it trace back to many different lineages, unified mainly by the shared elephant reference.",
+      praise: null,
+      sources: ["Wikipedia — Ndlovu"]
+    },
+    {
+      id: "mthembu", nations: ["Zulu"],
+      surnames: ["Mthembu"],
+      group: "Ntombela-linked clan",
+      origin: "A widely-carried KwaZulu-Natal clan name, recorded as linked to the Ntombela clan.",
+      history: "Detailed founding history beyond that link is thin in the general sources consulted here.",
+      praise: null,
+      sources: ["theclannames.co.za — Zulu clan names"]
+    },
+    {
+      id: "bhengu", nations: ["Zulu"],
+      surnames: ["Bhengu"],
+      group: "KwaDlabazane lineage",
+      origin: "A KwaZulu-Natal clan whose recorded praise opens by naming the Ngcolosi line.",
+      history: "The praise poem names ancestors including Dlabazane, kaNgwane and kaNephu kaLamula — typical of the way izithakazelo string together a remembered lineage rather than a single founding story.",
+      praise: { text: "Ngcolosi! Wena wakwaDlabazane, kaNgwane, kaNephu kaLamula.", gloss: "Praise naming the Ngcolosi line and a chain of honoured ancestors." },
+      sources: ["Answers Africa — Izithakazelo zakwaZulu"]
+    },
+    {
+      id: "sithole", nations: ["Zulu"],
+      surnames: ["Sithole"],
+      group: "Ndwandwe-allied warrior lineage",
+      origin: "Recorded as allied to the Ndwandwe confederation, one of the major powers — alongside the Mthethwa and Zulu — in the pre-Shakan KwaZulu-Natal political landscape.",
+      history: "Detailed individual founding history is thin in the general sources consulted here.",
+      praise: null,
+      sources: ["theclannames.co.za — Zulu clan names"]
+    },
+
+    // --- Xhosa ---
+    {
+      id: "madiba", nations: ["Xhosa"],
+      surnames: ["Madiba"],
+      group: "Thembu royal-linked clan (isiduko)",
+      origin: "Traces to King Ngubengcuka of the Thembu. Best known today as the isiduko (clan name) of the Mandela family — a reminder that among the Xhosa, the everyday surname and the ceremonial clan name are often recorded separately.",
+      history: "Reciting someone's isiduko, rather than their surname, is considered the highest form of respect in Xhosa custom; people who share a clan name are treated as kin and traditionally do not marry.",
+      praise: { text: "Ongumzulu, Mvelase!", gloss: "A praise invoking the clan's founding ancestors." },
+      sources: ["southafricanclans.com — Xhosa clan names"]
+    },
+    {
+      id: "tshawe", nations: ["Xhosa"],
+      surnames: ["Tshawe"],
+      group: "Royal house of the amaXhosa",
+      origin: "The royal house of the whole Xhosa nation, descended from King Phalo.",
+      history: "Both great Xhosa royal branches — Gcaleka and Rharhabe — trace their authority back to this Tshawe line.",
+      praise: { text: "Tshawe! Gcaleka, Ndodwana yakwa Phalo!", gloss: "Praise naming Tshawe as the royal line and Gcaleka as “son of Phalo.”" },
+      sources: ["southafricanclans.com — Xhosa clan names"]
+    },
+    {
+      id: "gcaleka", nations: ["Xhosa"],
+      surnames: ["Gcaleka"],
+      group: "Senior royal house",
+      origin: "One of the two major Xhosa royal houses, direct descendants of King Phalo through his son Gcaleka.",
+      history: "Regarded as the senior of the two houses that split the Xhosa kingdom; the other is Rharhabe.",
+      praise: { text: "Gcaleka! Rhude, Phalo, Tshawe!", gloss: "Praise tracing the line back through Phalo to the founding Tshawe house." },
+      sources: ["southafricanclans.com — Xhosa clan names", "Wikipedia — Gcaleka House"]
+    },
+    {
+      id: "rharhabe", nations: ["Xhosa"],
+      surnames: ["Rharhabe"],
+      group: "Western Xhosa royal house",
+      origin: "The other major Xhosa royal house, descended from Rharhabe kaPhalo, who led his followers west of the Kei River.",
+      history: "Recorded as known for bravery and leadership; the house's territory became what is now the Eastern Cape's Ciskei region.",
+      praise: { text: "Rharhabe, Mlawu, Ndlambe, Tshaka, Mqhayi!", gloss: "Praise naming a chain of honoured Rharhabe-line ancestors." },
+      sources: ["southafricanclans.com — Xhosa clan names", "Wikipedia — Rharhabe"]
+    },
+    {
+      id: "faku", nations: ["Xhosa"],
+      surnames: ["Faku"],
+      group: "AmaMpondo royal house",
+      origin: "The royal house of the amaMpondo, a Xhosa-related nation of the former Transkei.",
+      history: "King Faku kaNgqungqushe led the amaMpondo through much of the turbulent mfecane period of the early-to-mid 1800s.",
+      praise: { text: "Faku kaNgqungqushe!", gloss: "A praise naming Faku as son of Ngqungqushe." },
+      sources: ["southafricanclans.com — Xhosa clan names"]
+    },
+    {
+      id: "mpondo", nations: ["Xhosa"],
+      surnames: ["Santsabe", "Sukude", "Msiza", "Ncindise", "Cabe", "Gangata", "Bhala"],
+      group: "AmaMpondo lineage",
+      origin: "Descend from the founding line Sibiside → Dlamini → Njanya → Mpondo, one of twin sons (with Mpondomise) in the same founding generation.",
+      history: "A wide family of surnames trace to this Mpondo lineage, including Santsabe, Sukude, Msiza, Ncindise, Cabe, Gangata and Bhala, among others.",
+      praise: null,
+      sources: ["Wikipedia — Xhosa clan names"]
+    },
+    {
+      id: "mpondomise", nations: ["Xhosa"],
+      surnames: ["Mpondomise"],
+      group: "Twin branch of AmaMpondo",
+      origin: "The twin branch of the same Sibiside → Dlamini → Njanya founding lineage as AmaMpondo, forming the amaMpondomise nation.",
+      history: "Detailed individual founding history beyond the shared lineage is thin in the sources consulted.",
+      praise: null,
+      sources: ["Wikipedia — Xhosa clan names"]
+    },
+    {
+      id: "qwathi", nations: ["Xhosa"],
+      surnames: ["Qwathi", "Xesibe"],
+      group: "AmaXesibe / amaQwathi branch",
+      origin: "Descended through a separate branch of the Sibiside lineage (Ntozabantu → Ndzuza → Miyana → Bimbi → Nondzaba) that produced the amaXesibe nation.",
+      history: "The amaQwathi nation was founded from this line by Mtshutshumbe and settled in Thembuland more than 350 years ago, adopting much of Thembu cultural and political identity over time.",
+      praise: null,
+      sources: ["Wikipedia — Xhosa clan names"]
+    },
+
+    // --- Ndebele (Southern, South Africa) ---
+    {
+      id: "ndzundza-mahlangu", nations: ["Ndebele"],
+      surnames: ["Mahlangu"],
+      group: "Ndzundza royal house",
+      origin: "The ruling clan of the Ndzundza Ndebele, one of the two great houses formed when King Musi's kingdom split between his sons.",
+      history: "Chief Mabhogo (called “Mapoch” by the Boers) led the Ndzundza in the 1883 war against Boer settlers; his son Nyabela held out for eight months defending KoNomtjharelo before surrendering, and was released only after the Anglo-Boer War.",
+      praise: null,
+      sources: ["Kwekudee — Ndebele (Manala and Ndzundza) People"]
+    },
+    {
+      id: "manala-mabhena", nations: ["Ndebele"],
+      surnames: ["Mabhena"],
+      group: "Manala royal house",
+      origin: "The ruling clan of the Manala Ndebele, the other great house formed from King Musi's succession split, which kept the original seat at KwaMnyamana.",
+      history: "By Ndebele oral history, when the aging King Musi passed the royal insignia to his younger son Ndzundza rather than the elder Manala, the dispute was mediated by an elder, NoQoli, and resolved with the two brothers ruling separate territories — Ndzundza across the Bhalule River, Manala at KwaMnyamana.",
+      praise: null,
+      sources: ["Dikobo — Southern Ndebele People", "Kwekudee — Ndebele (Manala and Ndzundza) People"]
+    },
+    {
+      id: "skhosana", nations: ["Ndebele"],
+      surnames: ["Skhosana", "Skosana", "Masombuka"],
+      group: "Descendants who joined other groupings",
+      origin: "Recorded among King Musi's descendants, later forming their own family groupings distinct from the two main royal houses.",
+      history: "Detailed individual founding history beyond that descent is thin in the sources consulted.",
+      praise: null,
+      sources: ["Dikobo — Southern Ndebele People"]
+    },
+    {
+      id: "kekana", nations: ["Ndebele"],
+      surnames: ["Kekana"],
+      group: "Thombeni (Gegana) branch",
+      origin: "Descended from Musi's line, this branch established the Gegana community at Zebediela.",
+      history: "Documentation beyond this founding link is limited in the sources consulted.",
+      praise: null,
+      sources: ["Dikobo — Southern Ndebele People"]
+    },
+    {
+      id: "mhwaduba", nations: ["Ndebele"],
+      surnames: ["Mhwaduba"],
+      group: "Bahwaduba branch",
+      origin: "A branch of Musi's descendants who moved into Batswana communities, forming the Bahwaduba clan.",
+      history: "Documentation beyond this founding link is limited in the sources consulted.",
+      praise: null,
+      sources: ["Dikobo — Southern Ndebele People"]
+    },
+    {
+      id: "sibasa-mphafuli", nations: ["Ndebele"],
+      surnames: ["Sibasa", "Mphafuli"],
+      group: "Integrated into Venda leadership",
+      origin: "Two more of Musi's descendant lines, recorded as having integrated into Venda traditions and leadership structures over time — an example of how closely the Ndebele, Venda and other Limpopo-area royal histories intertwine.",
+      history: "Documentation beyond this founding link is limited in the sources consulted.",
+      praise: null,
+      sources: ["Dikobo — Southern Ndebele People"]
+    },
+
+    // --- Tswana ---
+    {
+      id: "bafokeng", nations: ["Tswana"],
+      surnames: ["Bafokeng", "Molotlegi"],
+      group: "Royal Bafokeng — dew/crocodile totem",
+      origin: "“People of the dew,” tracing their ancestry to around 1140, settled in what is now North West province around Phokeng, near Rustenburg. Their crocodile totem is drawn with its mouth shut, distinguishing it from other Sotho-Tswana crocodile clans.",
+      history: "Platinum was discovered beneath Bafokeng land in 1925 — among the richest deposits in the world. A 1999 settlement with a mining company secured the nation a royalty and ownership stake; the Bafokeng are governed today as a hereditary monarchy under Kgosi Leruo Molotlegi, a direct descendant in an unbroken royal line.",
+      praise: null,
+      sources: ["Wikipedia — Royal Bafokeng Nation"]
+    },
+    {
+      id: "bakwena", nations: ["Tswana"],
+      surnames: ["Kwena", "Mokoena", "Mmakau"],
+      group: "Bakwena — crocodile totem",
+      origin: "One of the largest Sotho-Tswana clan families, found across Botswana, South Africa and Lesotho, united by the crocodile (kwena) totem.",
+      history: "Numerous sub-groups branch from the Bakwena line, including the Bakgatla and Bakhutswe; the Basotho royal house itself descends from a Bakwena sub-lineage, the Bamokoteli.",
+      praise: null,
+      sources: ["Wikipedia — List of Sotho-Tswana clans"]
+    },
+    {
+      id: "bakgatla", nations: ["Tswana"],
+      surnames: ["Kgatla", "Pilane"],
+      group: "Bakgatla — monkey totem",
+      origin: "Spread across Lesotho, Botswana and South Africa's North West province, carrying the monkey (kgabo) as totem.",
+      history: "A branch of the wider Bakwena family; the Bakgatla ba Kgafela, under the Pilane royal house, are one of the better-known South African branches, centred around Moruleng/Saulspoort.",
+      praise: null,
+      sources: ["Wikipedia — List of Sotho-Tswana clans"]
+    },
+    {
+      id: "barolong", nations: ["Tswana"],
+      surnames: ["Rolong", "Barolong"],
+      group: "Barolong — kudu totem",
+      origin: "Trace their name to chief Morolong, who ruled around 1270–1280; most Batswana people descend from the Barolong line, first recorded around 1150. Their totem is the kudu (tholo).",
+      history: "Settled in the south-western Transvaal by around 1300, then migrated south by 1400 to land between the Molopo and Vaal rivers. Mahikeng (formerly Mafikeng), now North West's capital, grew as a major Barolong centre.",
+      praise: null,
+      sources: ["Wikipedia — Rolong", "Wikipedia — List of Sotho-Tswana clans"]
+    },
+    {
+      id: "bahurutshe", nations: ["Tswana"],
+      surnames: ["Hurutshe", "Mokgatle"],
+      group: "Bahurutshe — baboon totem",
+      origin: "Settled mainly in South Africa's North West province, carrying the baboon (tshwene) as totem.",
+      history: "Regarded by some traditions as one of the oldest Sotho-Tswana chiefdoms — the Pedi royal line, among others, traces descent from this line via the ancestor Malope.",
+      praise: null,
+      sources: ["Wikipedia — List of Sotho-Tswana clans"]
+    },
+
+    // --- Sotho (Basotho) ---
+    {
+      id: "moshoeshoe", nations: ["Sotho"],
+      surnames: ["Moshoeshoe", "Mopeli"],
+      group: "Bamokoteli — Bakoena (crocodile) royal line",
+      origin: "Moshoeshoe I descended from the Bamokoteli, a branch of the Bakoena (crocodile) clan; his father Mokhachane was a minor Bamokoteli chief.",
+      history: "Succeeding his father in 1820, Moshoeshoe gathered refugees fleeing the difaqane/lifaqane upheavals of the Shaka-era wars at the easily defended mountain stronghold of Thaba Bosiu (“mountain at night”) from 1824, uniting Bakoena, Bafokeng and other displaced clans into what became the Basotho nation by the early 1820s, and later the Kingdom of Lesotho.",
+      praise: null,
+      sources: ["Wikipedia — Moshoeshoe I"]
+    },
+    {
+      id: "bakoena-sotho", nations: ["Sotho"],
+      surnames: ["Mokoena", "Koena"],
+      group: "Bakoena — crocodile totem",
+      origin: "The largest of the Basotho clan families, named for the crocodile (koena) totem, associated with strength and power.",
+      history: "The Basotho royal line itself descends from a Bakoena sub-lineage, the Bamokoteli, under Moshoeshoe I.",
+      praise: null,
+      sources: ["The Grace — Sotho clan names"]
+    },
+    {
+      id: "batlokwa", nations: ["Sotho"],
+      surnames: ["Tlokwa", "Sekonyela"],
+      group: "Batlokwa — wildcat totem",
+      origin: "Carries the wildcat as totem. Under chief Sekonyela, the Batlokwa were one of Moshoeshoe I's chief rivals during the difaqane period, before eventually being absorbed into the wider Basotho nation.",
+      history: "Documentation beyond that rivalry and totem is thin in the sources consulted.",
+      praise: null,
+      sources: ["Wikipedia — List of Sotho-Tswana clans", "Wikipedia — Tlôkwa people"]
+    },
+    {
+      id: "bataung", nations: ["Sotho"],
+      surnames: ["Taung", "Moletsane"],
+      group: "Bataung — lion totem",
+      origin: "Known as “the lions,” found across South Africa's Sesotho, Setswana and Sepedi-speaking areas alike.",
+      history: "Documentation beyond the totem and wide distribution is thin in the sources consulted.",
+      praise: null,
+      sources: ["The Grace — Sotho clan names"]
+    },
+    {
+      id: "baphuthi", nations: ["Sotho"],
+      surnames: ["Phuthi", "Moorosi"],
+      group: "Baphuthi — baboon totem",
+      origin: "Named for the baboon totem, associated in tradition with cunning and intelligence; concentrated in the mountainous south of Lesotho.",
+      history: "Documentation beyond the totem is thin in the sources consulted.",
+      praise: null,
+      sources: ["The Grace — Sotho clan names"]
+    },
+
+    // --- Swati ---
+    {
+      id: "dlamini", nations: ["Swati"],
+      surnames: ["Dlamini"],
+      group: "Royal house of Eswatini",
+      origin: "Traces to a patriarch remembered as Dlamini I (Matalatala); now one of the most widespread surnames in southern Africa, carried across Xhosa, Zulu, Swati and Sotho communities alike, each with its own clan praise tradition.",
+      history: "In the early 1800s, Swati-branch leader Sobhuza I moved the clan's centre of power to the Ezulwini valley and later Zombodze, expanding Dlamini authority across what is now Eswatini while avoiding direct conflict with the powerful Zulu kingdom to the south — establishing the House of Dlamini as Eswatini's reigning royal family, a position it still holds.",
+      praise: null,
+      sources: ["Wikipedia — Dlamini"]
+    },
+    {
+      id: "simelane", nations: ["Swati"],
+      surnames: ["Simelane"],
+      group: "Prominent AmaSwati clan",
+      origin: "One of the most widely-carried AmaSwati surnames in both Eswatini and Mpumalanga, South Africa.",
+      history: "Detailed founding history beyond its prominence is thin in the sources consulted.",
+      praise: null,
+      sources: ["Wikipedia — Simelane"]
+    },
+    {
+      id: "mdluli", nations: ["Swati"],
+      surnames: ["Mdluli"],
+      group: "Prominent AmaSwati clan",
+      origin: "A prominent AmaSwati clan name; Labotsibeni Mdluli served as Queen Regent of Swaziland in the early 20th century, one of the best-known holders of the name.",
+      history: "Detailed founding history beyond these figures is thin in the sources consulted.",
+      praise: null,
+      sources: ["Wikipedia — Labotsibeni Mdluli", "Wikipedia — Mdluli"]
+    },
+    {
+      id: "other-swati", nations: ["Swati"],
+      surnames: ["Mabuza", "Nkambule", "Fakude"],
+      group: "Other prominent AmaSwati clans",
+      origin: "Common AmaSwati surnames carried by families on both sides of the Eswatini/Mpumalanga border.",
+      history: "Detailed individual founding histories for these clans are thin in the sources consulted here.",
+      praise: null,
+      sources: ["General AmaSwati clan references"]
+    }
+  ];
+
+  function norm(s) { return (s || "").trim().toLowerCase(); }
+
+  function findMatch(q) {
+    const nq = norm(q);
+    if (!nq) return { exact: null, partial: [] };
+    const exact = DATA.find(e => e.surnames.some(s => norm(s) === nq)) || null;
+    if (exact) return { exact, partial: [] };
+    const partial = DATA.filter(e => e.surnames.some(s => norm(s).startsWith(nq) || nq.startsWith(norm(s))));
+    return { exact: null, partial };
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function renderCard(entry) {
+    const praiseHtml = entry.praise ? `
+      <div class="praise">
+        <p>&ldquo;${escapeHtml(entry.praise.text)}&rdquo;</p>
+        <p>${escapeHtml(entry.praise.gloss)}</p>
+      </div>` : "";
+    const nationTags = entry.nations.map(n => `<span class="tag tag-nation">${escapeHtml(NATION_LABEL[n])}</span>`).join("");
+    const exploreLinks = entry.nations.map(n => `<a href="#nation-${n}">See ${escapeHtml(NATION_LABEL[n])} food, attire &amp; region ↓</a>`).join("");
+    return `
+      <div class="card">
+        <div class="card-head">
+          <h2>${escapeHtml(entry.surnames.join(", "))}</h2>
+          <div class="tag-row">${nationTags}<span class="tag tag-group">${escapeHtml(entry.group)}</span></div>
+        </div>
+        <p class="origin">${escapeHtml(entry.origin)}</p>
+        <p class="history">${escapeHtml(entry.history)}</p>
+        ${praiseHtml}
+        <p class="sources">Sources: ${escapeHtml(entry.sources.join(" · "))}</p>
+        <div class="explore-links">${exploreLinks}</div>
+      </div>`;
+  }
+
+  function renderPartial(partial) {
+    const chips = partial.map(e => `<button class="chip" type="button" data-pick="${escapeHtml(e.surnames[0])}">${escapeHtml(e.surnames[0])} <span style="opacity:.6">(${escapeHtml(e.nations.map(n => NATION_LABEL[n]).join(", "))})</span></button>`).join("");
+    return `
+      <div class="suggest">
+        <p>No exact match &mdash; did you mean:</p>
+        <div class="chip-row">${chips}</div>
+      </div>`;
+  }
+
+  function renderNone() {
+    return `
+      <div class="none">
+        <p class="title">Not yet documented here.</p>
+        <p class="body">This surname isn&rsquo;t in the small set of clans covered so far &mdash; that just means it wasn&rsquo;t in the published sources this was built from, not that it lacks history. Family elders and community clan-praise archives are the more complete places to ask.</p>
+      </div>`;
+  }
+
+  const input = document.getElementById("surname");
+  const results = document.getElementById("results");
+  const chipsEl = document.getElementById("chips");
+
+  function renderResults() {
+    const q = input.value;
+    if (!norm(q)) { results.innerHTML = ""; return; }
+    const { exact, partial } = findMatch(q);
+    if (exact) results.innerHTML = renderCard(exact);
+    else if (partial.length) results.innerHTML = renderPartial(partial);
+    else results.innerHTML = renderNone();
+    bindPicks(results);
+  }
+
+  function bindPicks(root) {
+    root.querySelectorAll("[data-pick]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        input.value = btn.getAttribute("data-pick");
+        renderResults();
+        saveQuery(input.value);
+        input.focus();
+      });
+    });
+  }
+
+  function buildBrowse() {
+    chipsEl.innerHTML = NATIONS.map(nation => {
+      const entries = DATA.filter(e => e.nations.includes(nation)).slice().sort((a, b) => a.surnames[0].localeCompare(b.surnames[0]));
+      const chips = entries.map(e => `<button class="chip" type="button" data-pick="${escapeHtml(e.surnames[0])}">${escapeHtml(e.surnames[0])}</button>`).join("");
+      return `<div class="nation-group"><h3>${escapeHtml(NATION_LABEL[nation])}</h3><div class="chip-row">${chips}</div></div>`;
+    }).join("");
+    bindPicks(chipsEl);
+  }
+
+  input.addEventListener("input", () => {
+    renderResults();
+    saveQuery(input.value);
+  });
+
+  function saveQuery(q) {
+    try { localStorage.setItem("sa-clan-notes-query", q); } catch (e) {}
+  }
+  function loadQuery() {
+    try { return localStorage.getItem("sa-clan-notes-query") || localStorage.getItem("tsonga-clan-notes-query") || ""; } catch (e) { return ""; }
+  }
+
+  buildBrowse();
+  input.value = loadQuery() || "Chauke";
+  renderResults();
+</script>
